@@ -1,0 +1,29 @@
+{
+  "name": "places",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tru36rit/places.git"
+  },
+  "homepage": "https://github.com/tru36rit/places#readme",
+  "author": "Nathan Dunn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tru36rit/places/issues"
+  },
+  "scripts": {},
+  "dependencies": {
+    "axios": "^0.16.2",
+    "chalk": "^2.1.0",
+    "node-gyp": "^3.6.2",
+    "node-pre-gyp": "^0.6.36",
+    "path": "^0.12.7",
+    "prompt": "^1.0.0",
+    "sequelize": "^4.8.0",
+    "sqlite3": "^3.1.10",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {}
+}
