@@ -13,6 +13,8 @@ const main = (namesList) => {
 
   namesList.forEach((name, i, a) => {
     let obj = { nameObj: makeNameObj(name) }; //fx call
+    if (obj.nameObj === 'INVALID') { return }
+
     findRaw(obj.nameObj) //async call
       .then(rawCode => rawCode ? rawCode : fetchAllHtml(obj.nameObj)) //async call
       .then(rawCode => insertRaw(obj.nameObj, rawCode)) //async call

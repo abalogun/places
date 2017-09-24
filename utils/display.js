@@ -3,10 +3,10 @@ const _ = require('underscore');
 
 //colors
 const colors = {
-  promptColors: [217, 123, 63],
-  labelColors: [189, 73, 23],
-  primColors: [210, 196, 137],
-  compColors: [191, 135, 37],
+  promptColors: [200, 220, 240],
+  labelColors: [200, 220, 240],
+  primColors: [200, 220, 240],
+  compColors: [200, 220, 240],
   dotColors: [100, 100, 100],
   requestColors: [163, 230, 195],
   errorColors: [175, 64, 71]

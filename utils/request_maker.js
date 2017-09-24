@@ -1,6 +1,6 @@
 const axios = require('axios');
 const chalk = require('chalk');
-const { colors } = require('./utils/display');
+const { colors } = require('./display');
 
 const categoriesAreaVibes = ['cost-of-living', 'demographics', 'education', 'crime'];
 const categoriesBestPlaces = ['', 'climate', 'voting', 'housing', 'economy', 'crime'];
