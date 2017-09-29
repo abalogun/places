@@ -43,7 +43,7 @@ const displayData = (places, printer) => {
         let lab = label.replace(/_/g, ` `);
         let gap;
         lab = isHeading ? chalk.underline.rgb(...theme.labelColors)(lab) : chalk.rgb(...theme.labelColors)(lab);
-        gap = `  ${symb.repeat(maxLabelLen - label.length)}`;
+        gap = `  ${symb.repeat(Math.max((maxLabelLen - label.length), 0))}`;
         gap = chalk.rgb(...theme.gapColors)(gap);
 
         line += lab + gap;
@@ -52,7 +52,7 @@ const displayData = (places, printer) => {
           let isPrimary = j === 0 ? true : false;
           let data = place[label] || place.nameObj.cityProper;
           let space;
-          space = `${symb.repeat(Math.max(12, maxPlaceLen + 2) - data.length)} `;
+          space = `${symb.repeat(Math.max((15 - data.length), 0))} `;
           space = isPrimary ? space : '  ' + space; //smooths output with labels
           space = chalk.rgb(...theme.spaceColors)(space);
           data = data.replace(/_/g, ` `);

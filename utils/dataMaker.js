@@ -76,7 +76,7 @@ const makeDataObj = (nameObj, rawCode) => {
 
   //HOUSING
   obj['HOUSING'] = '';
-  obj.MED_HOME_PRICE = siftHtml(code, `col=median_property_value`, 40, 45, '$,'); /*?*/
+  obj.MED_HOME_PRICE = siftHtml(code, `>The median home value in `, 0, 50, '$0'); /*?*/
   obj.HOME_APPREC_1_YR = siftHtml(code, `appreciation - last 12 months`, 150, 140, '%1'); /*?*/
   obj.HOME_APPREC_5_YR = siftHtml(code, `appreciation - last 5 years`, 150, 140, '%1'); /*?*/
   obj.HOME_APPREC_10_YR = siftHtml(code, `appreciation - last 10 years`, 150, 140, '%1'); /*?*/
