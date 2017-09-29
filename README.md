@@ -1,7 +1,7 @@
 # places
-The project is a less personal version of another project I creted called 'my_places.'  Just provide a US city and state, and the app will return information regarding costs, demographics, economics, climate, etc. related to that city.  The app also allows you to compare data side-by-side with several other cities of your choosing.
+This project is a less personalized version of another project I created called 'my_places.'  Just provide a US city and state, and the app will return information regarding costs, demographics, economics, climate, etc. related to that city.
 
-The app runs in the terminal.
+The app runs in the terminal and allows you to compare data side-by-side with several other cities of your choosing.
 
 ## Getting Started
 After forking, cloning, and accessing the directory run the following:
@@ -35,7 +35,7 @@ Character Spacing: 0.985
 Line Spacing: 1
 ```
 
-I personally use iTerminal with the following font settings
+I personally use iTerminal with the following font settings:
 ```
 Collection: All Fonts
 Family: Operator Mono
@@ -56,15 +56,15 @@ You can compare several cities side-by-side (up to 6 additional cities with the 
 $ open comparisons.js
 ```
 
-Modify the list to include the cities you want to compare.  They will remain until modified.
+Modify the list to include the cities you want to compare.
 
 ## Extra
-To view a list of the cities in your database, input 'ALL' after starting the app
+To view the list of cities in your database input 'ALL' after starting the app
 ```
 $ Name the place ==>: ALL
 ```
 
-To see the raw code associated with a place, input the word 'TEST' before your emtry.
+To see the raw code associated with a place input the word 'TEST' before your emtry.
 ```
 Name the place ==>: TEST san francisco, ca
 ```
@@ -75,4 +75,4 @@ Name the place ==>: EXIT
 ```
 
 ## Tech
-The project uses the terminal to run the script in node.js.  The project is serverless! and stores data in a SQLITE3 databases using Sequelize's ORM.
+The project uses the terminal to run the script in node.js.  The project is serverless! and stores data in a SQLite database using Sequelize's ORM.
