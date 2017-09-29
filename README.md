@@ -81,5 +81,5 @@ The project uses the terminal to run the script in node.js.  The project is serv
 
 ## Websites Used (so far)
 * datausa.io
-* www.areavibes.com
-* www.bestplaces.net
+* areavibes.com
+* bestplaces.net
