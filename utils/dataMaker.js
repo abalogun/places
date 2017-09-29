@@ -94,7 +94,7 @@ const makeDataObj = (nameObj, rawCode) => {
   obj.POVERTY = siftHtml(code, `Poverty level`, 0, 20, '%1'); /*?*/
 
   //DEMOS
-  obj['DEMOS'] = '';
+  obj['DEMOGRAPHICS'] = '';
   obj.MEDIAN_AGE = siftHtml(code, `Median age`, 0, 20, 'y1'); /*?*/
   obj.MARRIED_W_KIDS = siftHtml(code, `married, living with one or more children`, 150, 140, '%1'); /*?*/
   obj.WHITE = siftHtml(code, `<td>Caucasian</td>`, 0, 15, '%1'); /*?*/
