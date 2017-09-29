@@ -1,9 +1,9 @@
 # places
-This project is a less personalized version of another project I created called 'my_places.'  Just provide a US city and state, and the app will return information regarding costs, demographics, economics, climate, etc. associated with that city.
+Just provide a US city and state, and the app will return information regarding costs, demographics, economics, climate, etc. associated with that city.
 
 The app runs in the terminal and allows you to compare data side-by-side with several other cities of your choosing.
 
-The app is for my own personal use.
+The app is for my own personal use and is a less personalized version of another project I created called 'my_places.'  
 
 ## Getting Started
 After forking, cloning, and accessing the directory run the following:
