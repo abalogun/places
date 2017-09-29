@@ -24,7 +24,7 @@ Name the place ==>: new york, ny
 
 If the app has never seen the entry before it will make the necessary web requests, otherwise it will pull directly from the database.
 
-Note: The input must be the city and state seperated by a comma.  It is not case or space sentiive, and the state can be either the abbreviation or the full spelling.
+Note: The input **must be the city and state seperated by a comma.  It is not case or space sentiive, and the state can be either the abbreviation or the full spelling.
 
 ## Output
 The output is best viewed when the terminal is in fullscreen and the font settings are similar to the following:
@@ -37,7 +37,7 @@ Character Spacing: 0.985
 Line Spacing: 1
 ```
 
-The following is my personal preference:
+The following is my personal preference using iTerminal2:
 ```
 Collection: All Fonts
 Family: Operator Mono
@@ -52,13 +52,11 @@ and a background rgb color of
 ```
 
 ## Comparison Cities
-You can compare several cities side-by-side (up to 6 additional cities with the above font settings)
+Several cities can be compared side-by-side.  To modify the cities open the following file and modify the list (Up to 6 cities and states depending on the current font settings).
 
 ```
 $ open comparisons.js
 ```
-
-Modify the list to include the cities you want to compare.
 
 ## Extra
 To view the list of cities in your database input 'ALL' after starting the app
