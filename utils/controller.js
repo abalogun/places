@@ -1,5 +1,5 @@
 const chalk = require('chalk');
-const { colors } = require('./display');
+const { theme } = require('./display');
 const { Raw } = require('../db/db');
 
 
@@ -11,28 +11,30 @@ const fetchAllNames = () => {
     .findAll({ attributes: ['PLACE_ID'], order: ['PLACE_ID'] })
     .then(resp => resp ? stripName(resp) : null)
     .then(names => names.forEach((n, i) => console.log(i + 1, n)))
-    .catch(err => console.log(chalk.rgb(...colors.errorColors)(`ERROR findAllRaw...`)));
+    .catch(err => console.log(chalk.rgb(...theme.errorColors)(`ERROR findAllRaw...`)));
 };
 
 const findRaw = (nameObj) => {
   return Raw
     .findOne({ where: { PLACE_ID: nameObj.placeId } })
     .then(resp => resp ? resp.dataValues.HTML : null)
-    .catch(err => console.log(chalk.rgb(...colors.errorColors)(`ERROR findRaw for ${nameObj.full}...`)));
+    .catch(err => console.log(chalk.rgb(...theme.errorColors)(`ERROR findRaw for ${nameObj.full}...`, err)));
 };
 
 const insertRaw = (nameObj, rawCode) => {
-  if (!rawCode) { return 'NOPE' }
+  if (!rawCode) { return }
 
   const defaultObj = {};
-  defaultObj.PLACE_ID = nameObj.id;
+  defaultObj.PLACE_ID = nameObj.placeId;
   defaultObj.HTML = rawCode;
-  defaultObj.LEN = rawCode.length || null;
+  defaultObj.LEN = rawCode.length;
 
   return Raw
     .findOrCreate({ where: { PLACE_ID: nameObj.placeId }, defaults: defaultObj })
-    .spread(resp => resp.dataValues.HTML)
-    .catch(err => console.log(chalk.rgb(...colors.errorColors)(`ERROR InsertRaw for ${nameObj.full}...`)));
+    .spread((code, created) => code.dataValues.HTML)
+    .catch(err => err ? setTimeout(() => (insertRaw(nameObj, rawCode)), 0) : null) //fixes db being busy from simultaneous inserts
+    .then(resp => rawCode)
+    .catch(err => console.log(chalk.rgb(...theme.errorColors)(`ERROR InsertRaw for ${nameObj.full}...`, err)));
 };
 
 

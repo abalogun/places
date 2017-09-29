@@ -1,7 +1,7 @@
-const makeNameObj = require('./nameObj_maker');
+const makeNameObj = require('./nameMaker');
 const { fetchAllNames, findRaw, insertRaw } = require('./controller');
-const makeDataObj = require('./dataObj_maker');
-const fetchAllHtml = require('./request_maker');
+const makeDataObj = require('./dataMaker');
+const fetchAllHtml = require('./requestMaker');
 const { displayData } = require('./display');
 
 
@@ -12,6 +12,7 @@ const main = (namesList) => {
   const dataObjs = [];
 
   namesList.forEach((name, i, a) => {
+
     let obj = { nameObj: makeNameObj(name) }; //fx call
     if (obj.nameObj === 'INVALID') { return }
 

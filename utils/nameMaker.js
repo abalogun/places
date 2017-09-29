@@ -108,44 +108,47 @@ const states = [
 ]
 
 const makeNameObj = (inputStr) => {
-  if (!inputStr) { return 'INVALD' }
+  if (!inputStr) { return 'INVALID' }
 
   let obj = {};
   let tmp = inputStr.split(',').map(p => p.toLowerCase().replace(/\s+/gi, ' ').trim());
   let city = tmp[0];
   let state = tmp[1];
 
-  let stateLowerAbbr = states[0][state] || states[0][states[1][state]] || null;
-  if (!stateLowerAbbr) { return 'INVALID' }
-  let stateUpperAbbr = stateLowerAbbr.toUpperCase();
-  let stateLowerBestPlaces = (state.length > 2 ? state : states[1][state]).split(' ').map(p => p).join('_');
-  let cityLowerAreaVibes = city.split(' ').map(part => part).join('+');
-  let cityLowerBestPlaces = city.split(' ').map(part => part).join('_');
-  if (cityLowerBestPlaces === 'nashville') { cityLowerBestPlaces += '-davidson' } //patch for nashville
+  let stateAbbrLowerCase = states[0][state] || states[0][states[1][state]] || null; /*?*/
+  if (!stateAbbrLowerCase) { return null };
+  let stateAbbrUpperCase = stateAbbrLowerCase.toUpperCase(); /*?*/
+  let stateLongLowerCase = states[1][stateAbbrUpperCase.toLowerCase()]; /*?*/
+  let stateLongUpperCase = stateLongLowerCase.toUpperCase(); /*?*/
+  let stateLongProper = stateLongLowerCase.split(' ').map(part => part.split('').map((char, i) => i == 0 ? char.toUpperCase() : char.toLowerCase()).join('')).join(' '); /*?*/
+  let stateWithUnderscore = stateLongProper.replace(/ /g, '_'); /*?*/
+  let stateWithPluses = stateLongProper.replace(/ /g, '+'); /*?*/
+  let stateWithDash = stateLongProper.replace(/ /g, '-'); /*?*/
 
-  let cityProper = city.split(' ').map(part => {
-    return part.split('').map((char, i) => {
-      return i === 0 ? char.toUpperCase() : char.toLowerCase();
-    }).join('')
-  }).join(' ');
+  let cityLowerCase = city; /*?*/
+  let cityUpperCase = city.toUpperCase(); /*?*/
+  let cityProper = city.split(' ').map(part => part.split('').map((char, i) => i == 0 ? char.toUpperCase() : char.toLowerCase()).join('')).join(' '); /*?*/;
+  let cityWithUnderscores = city.replace(/ /g, '_'); /*?*/
+  let cityWithPluses = city.replace(/ /g, '+'); /*?*/
+  let cityWithDashes = city.replace(/ /g, '-'); /*?*/
 
-  let cityProperIndeed = cityProper.split(' ').map(part => part).join('-');
+  if (cityLowerCase === 'nashville') { //patch for nashville
+    cityWithDashes += '-davidson-metropolitan-government-(balance)';
+    cityWithUnderscores += '-davidson'
+  }
 
-  let areavibes = `${cityLowerAreaVibes}-${stateLowerAbbr}`;
-  let bestplaces = `${stateLowerBestPlaces}/${cityLowerBestPlaces}`;
-  let indeed = `${cityProperIndeed}-${stateUpperAbbr}`;
-
-  obj.placeId = areavibes;
-  obj.areavibes = areavibes;
-  obj.bestplaces = bestplaces;
-  obj.indeed = indeed;
-  obj.properCity = cityProper;
-  obj.properState = stateUpperAbbr;
-  obj.full = `${cityProper}, ${stateUpperAbbr}`;
+  obj.placeId = `${cityWithPluses}-${stateAbbrLowerCase}`; /*?*/
+  obj.dataUSA = `${cityWithDashes}-${stateAbbrLowerCase}`; /*?*/
+  obj.areavibes = `${cityWithPluses}-${stateAbbrLowerCase}`; /*?*/
+  obj.bestplaces = `${stateAbbrLowerCase}/${cityWithUnderscores}`; /*?*/
+  obj.indeed = `${cityWithDashes}-${stateAbbrUpperCase}`; /*?*/
+  obj.google = `${cityWithPluses}+${stateAbbrLowerCase}`; /*?*/
+  obj.cityProper = cityProper; /*?*/
+  obj.stateProper = stateLongProper; /*?*/
+  obj.full = `${cityProper}, ${stateLongProper}`; /*?*/
+  obj.Pro = `${cityProper}, ${stateAbbrUpperCase}`; /*?*/
 
   return obj;
 };
-
-
 
 module.exports = makeNameObj;

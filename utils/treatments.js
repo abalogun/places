@@ -9,7 +9,7 @@ const treatHtml = (str) => {
     .replace(/\s+/gi, ' ')
     .replace(/[{}]/g, '')
     .split(' ')
-    .filter(term => term.length < 100)
+    .filter(term => term.length < 1000)
     .join(' ');
   return newStr;
 };
@@ -28,6 +28,10 @@ const treatData = (data = null, format) => {
   if (format[0] === '%') result = result + '%';
   if (format[0] === ':') result = result + ':1';
   if (format[0] === 'm') result = result + ' min';
+  if (format[0] === 'k') result = result + '';
+  if (format[0] === 'y') result = result + '';
+  if (format[0] === 'x') result = result + 'x';
+  if (format[0] === 'M') result = result + ' mi2';  
   return result;
 };
 

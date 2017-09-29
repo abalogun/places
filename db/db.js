@@ -2,7 +2,7 @@ const sqlite = require('sqlite3');
 const Sequelize = require('sequelize');
 const path = require('path');
 const colors = require('colors');
-const { makeDataObj } = require('../utils/dataObj_maker');
+const { makeDataObj } = require('../utils/dataMaker');
 
 
 const db = new Sequelize('places', 'root', 'password', {

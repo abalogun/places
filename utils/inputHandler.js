@@ -1,5 +1,5 @@
 const chalk = require('chalk');
-const { colors } = require('./display');
+const { theme } = require('./display');
 const _ = require('underscore');
 const { fetchAllNames } = require('./controller');
 
@@ -17,7 +17,7 @@ const handleInput = (...input) => {
 
   //EXIT conditions
   if (!prefix || prefix.toUpperCase() === 'EXIT') {
-    console.log(chalk.rgb(...colors.errorColors)('Exiting'));
+    console.log(chalk.rgb(...theme.errorColors)('Exiting'));
     return;
   }
 
@@ -25,14 +25,14 @@ const handleInput = (...input) => {
   // pre filters
   if (input[0].indexOf(',') === -1) {
     if (!_.contains(['EXIT', 'ALL', 'TEST', 'g', ''], prefix)) {
-      console.log(chalk.rgb(...colors.errorColors)('Invalid entry'));
+      console.log(chalk.rgb(...theme.errorColors)('Invalid entry'));
       return;
     }
   }
 
   //quick case
   if (input[0] === 'g') {
-    input[0] = 'los angeles, ca'
+    input[0] = 'austin, tx'
   }
 
   //other conditions
@@ -41,6 +41,7 @@ const handleInput = (...input) => {
     printer.print_dataObj = false;
     console.log();
     fetchAllNames();
+    return;
   } else if (prefix.toUpperCase() === 'TEST') {
     printer.print_rawCode = true;
     printer.print_dataObj = false;
