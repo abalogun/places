@@ -1,5 +1,5 @@
 # places
-This project is a less personalized version of another project I created called 'my_places.'  Just provide a US city and state, and the app will return information regarding costs, demographics, economics, climate, etc. related to that city.
+This project is a less personalized version of another project I created called 'my_places.'  Just provide a US city and state, and the app will return information regarding costs, demographics, economics, climate, etc. associated with that city.
 
 The app runs in the terminal and allows you to compare data side-by-side with several other cities of your choosing.
 
@@ -37,7 +37,7 @@ Character Spacing: 0.985
 Line Spacing: 1
 ```
 
-I personally use iTerminal with the following font settings:
+The following is my personal preference:
 ```
 Collection: All Fonts
 Family: Operator Mono
@@ -75,6 +75,8 @@ To exit the app without providing an entry simply press enter or type 'EXIT'
 ```
 Name the place ==>: EXIT
 ```
+## Extra Extra
+To see Web Developer salaries for the city per Indeed open dataMaker.js in the utils directory and uncomment lines 129 and 130.
 
 ## Tech
 The project uses the terminal to run the script in node.js.  The project is serverless! and stores data in a SQLite database using Sequelize's ORM.
