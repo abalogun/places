@@ -3,6 +3,8 @@ This project is a less personalized version of another project I created called 
 
 The app runs in the terminal and allows you to compare data side-by-side with several other cities of your choosing.
 
+The app is for my own personal use.
+
 ## Getting Started
 After forking, cloning, and accessing the directory run the following:
 ```
@@ -76,3 +78,8 @@ Name the place ==>: EXIT
 
 ## Tech
 The project uses the terminal to run the script in node.js.  The project is serverless! and stores data in a SQLite database using Sequelize's ORM.
+
+## Websites Used (so far)
+* datausa.io
+* www.areavibes.com
+* www.bestplaces.net
