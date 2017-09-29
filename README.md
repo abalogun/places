@@ -83,3 +83,4 @@ The project uses the terminal to run the script in node.js.  The project is serv
 * datausa.io
 * areavibes.com
 * bestplaces.net
+* indeed.com
