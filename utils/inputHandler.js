@@ -9,6 +9,22 @@ const printer = {
   print_dataObj: null,
 };
 
+const shortcuts = {
+  a: 'austin, tx',
+  s: 'seattle, wa',
+  d: 'denver, co',
+  f: 'san francisco, ca',
+  g: 'long beach, ca',
+  h: 'houston, tx',
+  j: 'salt lake city, ut',
+  c: 'colorado springs, co',
+  k: 'dallas, tx',
+  l: 'los angeles, ca',
+  n: 'new york, ny',
+  b: 'billings, mt',
+  y: 'yucaipa, ca'
+}
+
 
 const handleInput = (...input) => {
 
@@ -24,15 +40,15 @@ const handleInput = (...input) => {
 
   // pre filters
   if (input[0].indexOf(',') === -1) {
-    if (!_.contains(['EXIT', 'ALL', 'TEST', 'g', ''], prefix)) {
+    if (!_.contains(['EXIT', 'ALL', 'TEST', ...Object.keys(shortcuts), ''], prefix)) {
       console.log(chalk.rgb(...theme.errorColors)('Invalid entry'));
       return;
     }
   }
 
   //quick case
-  if (input[0] === 'g') {
-    input[0] = 'austin, tx'
+  if (_.contains(Object.keys(shortcuts), input[0])) {
+    input[0] = shortcuts[input[0]];
   }
 
   //other conditions
