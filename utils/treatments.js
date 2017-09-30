@@ -19,7 +19,7 @@ const treatData = (data = null, format) => {
 
   data = typeof data === 'string' && data.slice(-1) === '.' ? data.slice(0, -1) : data; //patch for trailing '.'
 
-  let result = `${Number(data).toFixed(format[1]).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
+  let result = `${Number(data).toFixed(format[1]).replace(/\B(?=(\d{3})+(?!\d))/g, ',').trim()}`;
   if (format[0] === ',') result = result;
   if (format[0] === '$') result = '$' + result;
   if (format[0] === 'd') result = result + '° F';

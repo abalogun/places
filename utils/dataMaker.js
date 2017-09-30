@@ -127,8 +127,8 @@ const makeDataObj = (nameObj, rawCode) => {
 
   ////////////////////////// PERSONAL AREA //////////////////////////////////////
   //obj['PERSONAL'] = '';
-  //obj.WEB_DEV_SALARY_indeed = siftHtml(code, `summary-caption">Average in`, 60, 60, '$0', obj.COST_OF_LIVING_INDEX); /*?*/
-
+  // obj.WEB_DEV_SALARY_indeed = siftHtml(code, `>The average Web Developer salary in`, 0, 50, '$0', obj.COST_OF_LIVING_INDEX); /*?*/
+  ///////////////////////////////////////////////////////////////////////////////
 
   return obj;
 }
